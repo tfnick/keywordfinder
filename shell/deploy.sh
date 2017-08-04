@@ -12,10 +12,23 @@
 #a1=1;a2=2;a3=3
 #echo $((a1+a2+a3))
 #s1="China is an lovely country."
+echo `date "+%Y%m%d-%H%M%S"`
 
-read_until_right "choose which to deploy(0|enter all,1 api,2 web): " "0" "1" "2"
+git_mvn_package
 
-echo "read_until_right output : $? "
+read_until_right "choose which to deploy(0|enter both,1 api,2 web): " "0" "1" "2"
+
+input=$?
+
+if [ "${input}" == '1' ]
+then
+   echo "deploying api service"
+elif [ "${input}" == '2' ]
+then
+   echo "deploying web service"
+else
+   echo "deploying api&web service"
+fi
 
 
 
@@ -23,19 +36,5 @@ echo "read_until_right output : $? "
 
 
 
-
-
-#if [ ${app} == '1' ]
-#then
-#   echo "a 等于 b"
-#elif [ ${app} == '2' ]
-#then
-#   echo "a 大于 b"
-#elif [ ${app} == '0' ]
-#then
-#   echo ""
-#else
-#   echo read_until_right '$@'
-#fi
 
 
