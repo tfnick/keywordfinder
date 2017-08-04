@@ -12,7 +12,8 @@
 #a1=1;a2=2;a3=3
 #echo $((a1+a2+a3))
 #s1="China is an lovely country."
-echo `date "+%Y%m%d-%H%M%S"`
+
+check_env
 
 git_mvn_package
 
@@ -23,11 +24,14 @@ input=$?
 if [ "${input}" == '1' ]
 then
    echo "deploying api service"
+   deploy_api
 elif [ "${input}" == '2' ]
 then
    echo "deploying web service"
+   deploy_web
 else
    echo "deploying api&web service"
+   deploy_api_web
 fi
 
 

@@ -9,6 +9,13 @@ PROJECT_NAME='keywordfinder'
 CHECKOUT_HOME='/home/nick/PycharmProjects/'
 
 
+function check_env() {
+    echo "##############################################################"
+    echo "# before deploy must prepare [java  git  maven  nginx] in env."
+    echo "# app use spring boot with embed tomcat"
+    echo "##############################################################"
+}
+
 
 # info var1(default) var2 var3
 function read_until_right() {
